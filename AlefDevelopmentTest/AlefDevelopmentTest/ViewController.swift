@@ -9,47 +9,73 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
+    //MARK: - Outlets
     
     @IBOutlet weak var listTableView: UITableView!
     
+    @IBOutlet weak var addChildButton: UIButton!
     
-    var childrenArray: [String] = []
+    var childrenArray: [Children] = []
     
-    var childrenCount = "Child"
-
-    var score = 1
-    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitle()
         setTableView()
     }
     
-    
-    private func setTitle() {
-        title = "Персональные данные"
-       navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
+    // MARK: - Logic
     private func setTableView() {
         listTableView.dataSource = self
         listTableView.delegate = self
         listTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     }
     
-    func reload() {
+    private func viewDelete() {
+        childrenArray.removeAll()
         listTableView.reloadData()
     }
+    
+    
+    private func presentAlertController() {
+        let alertController = UIAlertController(title: "Вы уверены, что хотите очистить список", message: nil, preferredStyle: .actionSheet)
+        let alertClear = UIAlertAction(title: "Очистить", style: .default) { _ in
+            self.viewDelete()
+            self.addChildButton.isHidden = false
+        }
+        
+        let alertCancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alertController.addAction(alertClear)
+        alertController.addAction(alertCancel)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Button Action
+    
     
     @IBAction func addChild(_ sender: Any) {
-        childrenArray.append(childrenCount + String(score))
-        score += 1
+        
+        let children = Children(name: nil, age: nil)
+        
+        childrenArray.append(children)
         listTableView.reloadData()
+        
+        if childrenArray.count == 5 {
+            addChildButton.isHidden = true
+        }
+        
     }
     
-
+    
+    @IBAction func deleteAllList(_ sender: Any) {
+        presentAlertController()
+    }
+    
+    
+    
 }
+// MARK: - Extensions UITableView
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,10 +92,6 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 184
+        return 130
     }
 }
-
-
-
-

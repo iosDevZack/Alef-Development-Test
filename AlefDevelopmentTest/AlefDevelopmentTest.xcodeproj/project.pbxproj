@@ -14,6 +14,7 @@
 		EE04561C27D9232700000AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE04561B27D9232700000AF3 /* Assets.xcassets */; };
 		EE04561F27D9232700000AF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE04561D27D9232700000AF3 /* LaunchScreen.storyboard */; };
 		EE04562827D9237500000AF3 /* Tz.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04562727D9237500000AF3 /* Tz.swift */; };
+		EEA10D8D27DAB0CF003F6075 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA10D8C27DAB0CF003F6075 /* Model.swift */; };
 		EEB7BFAE27D93AD300AA122C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB7BFAC27D93AD300AA122C /* TableViewCell.swift */; };
 		EEB7BFAF27D93AD300AA122C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEB7BFAD27D93AD300AA122C /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		EE04561E27D9232700000AF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE04562027D9232700000AF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE04562727D9237500000AF3 /* Tz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tz.swift; sourceTree = "<group>"; };
+		EEA10D8C27DAB0CF003F6075 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EEB7BFAC27D93AD300AA122C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		EEB7BFAD27D93AD300AA122C /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,8 @@
 		EE04561127D9232600000AF3 /* AlefDevelopmentTest */ = {
 			isa = PBXGroup;
 			children = (
+				EEA10D8F27DAB9CF003F6075 /* Cell */,
+				EEA10D8E27DAB9BF003F6075 /* Model */,
 				EE04562627D9236900000AF3 /* TZ */,
 				EE04561227D9232600000AF3 /* AppDelegate.swift */,
 				EE04561427D9232600000AF3 /* SceneDelegate.swift */,
@@ -70,8 +74,6 @@
 				EE04561B27D9232700000AF3 /* Assets.xcassets */,
 				EE04561D27D9232700000AF3 /* LaunchScreen.storyboard */,
 				EE04562027D9232700000AF3 /* Info.plist */,
-				EEB7BFAC27D93AD300AA122C /* TableViewCell.swift */,
-				EEB7BFAD27D93AD300AA122C /* TableViewCell.xib */,
 			);
 			path = AlefDevelopmentTest;
 			sourceTree = "<group>";
@@ -82,6 +84,23 @@
 				EE04562727D9237500000AF3 /* Tz.swift */,
 			);
 			path = TZ;
+			sourceTree = "<group>";
+		};
+		EEA10D8E27DAB9BF003F6075 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEA10D8C27DAB0CF003F6075 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EEA10D8F27DAB9CF003F6075 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EEB7BFAC27D93AD300AA122C /* TableViewCell.swift */,
+				EEB7BFAD27D93AD300AA122C /* TableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +178,7 @@
 				EEB7BFAE27D93AD300AA122C /* TableViewCell.swift in Sources */,
 				EE04561727D9232600000AF3 /* ViewController.swift in Sources */,
 				EE04562827D9237500000AF3 /* Tz.swift in Sources */,
+				EEA10D8D27DAB0CF003F6075 /* Model.swift in Sources */,
 				EE04561327D9232600000AF3 /* AppDelegate.swift in Sources */,
 				EE04561527D9232600000AF3 /* SceneDelegate.swift in Sources */,
 			);
