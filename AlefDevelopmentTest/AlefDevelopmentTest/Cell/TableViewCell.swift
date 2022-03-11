@@ -10,6 +10,9 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     
+    var deleteDelegate: DeleteRowDelegate?
+    var indexPath: IndexPath?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,14 +26,10 @@ class TableViewCell: UITableViewCell {
     
     
     @IBAction func deleteButton(_ sender: UIButton) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
-        
-        
+        if deleteDelegate != nil, let indexPath = indexPath {
+            deleteDelegate!.deleteRowForIndex(at: indexPath)
+        }
         print("delete")
-        
-        
     }
     
 }

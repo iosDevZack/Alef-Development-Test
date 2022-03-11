@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DeleteRowDelegate {
+    func deleteRowForIndex(at indexPath: IndexPath)
+}
+
 class ViewController: UIViewController {
     
     //MARK: - Outlets
@@ -15,7 +19,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addChildButton: UIButton!
     
+    //MARK: - Property
+    
     var childrenArray: [Children] = []
+    
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -84,6 +92,10 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = listTableView.dequeueReusableCell(withIdentifier: "TableViewCell") as? TableViewCell else { return UITableViewCell() }
+        
+        cell.indexPath = indexPath
+        cell.deleteDelegate = self
+        
         return cell
     }
     
@@ -93,5 +105,12 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
+    }
+}
+
+extension ViewController: DeleteRowDelegate {
+    func deleteRowForIndex(at indexPath: IndexPath) {
+        childrenArray.remove(at: indexPath.row)
+        listTableView.reloadData()
     }
 }
